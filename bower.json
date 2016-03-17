@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "description": "No sexto episódio da série AngularJS, nós vamos falar sobre como integrar com o back-end por AJAX, utilizando o serviço $http.",
+  "main": "server.js",
+  "authors": [
+    "Michel P Machado <michelpm123@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Angularjs",
+    "youtube",
+    "learningcode",
+    "javascript",
+    "express",
+    "node"
+  ],
+  "homepage": "no",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "express": "^3.x"
+  }
+}
