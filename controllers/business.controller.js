@@ -5,11 +5,11 @@ var express = require('express');
  var jsdom = require("jsdom");
  var arra = [];
  var arrayDep = [];
- var countGlobal = 0;
+ 
  router.get('/', function(req, res) {
 
-
-
+  var countGlobal = 0;
+  
   jsdom.env({
    url: "http://www.camara.leg.br/internet/deputado/Dep_Lista.asp?Legislatura=55&Partido=QQ&SX=QQ&Todos=None&UF=QQ&condic=QQ&forma=lista&nome=&ordem=nome&origem=None",
    scripts: ["http://code.jquery.com/jquery.js"],
@@ -35,8 +35,7 @@ var express = require('express');
     };
 
     for (var i = 0; i < arrayDep.length; i++) {
-    setTimeout(dataDep(arrayDep[i]), 1000); 
-   
+      setTimeout(dataDep(arrayDep[i]), 1000 * (countGlobal++);
     };
 
     //console.log(arra);
