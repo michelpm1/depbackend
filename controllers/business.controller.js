@@ -1,11 +1,11 @@
- var express = require('express');
+var express = require('express');
  var router = express.Router();
  var mongoose = require('mongoose');
  var depObj = {};
  var jsdom = require("jsdom");
  var arra = [];
  var arrayDep = [];
-
+ var countGlobal = 0;
  router.get('/', function(req, res) {
 
 
@@ -21,7 +21,7 @@
     $('a').each(function() {
      //console.log("test1");
      dirtyArrayDep.push($(this).attr('href'));
-
+     //window.close();
     });
     // console.log(typeof(dirtyArrayDep[0]));
     for (var i = 0; i < dirtyArrayDep.length; i++) {
@@ -35,7 +35,8 @@
     };
 
     for (var i = 0; i < arrayDep.length; i++) {
-     dataDep(arrayDep[i]);
+    setTimeout(dataDep(arrayDep[i]), 1000); 
+   
     };
 
     //console.log(arra);
@@ -51,7 +52,6 @@
 
  function dataDep(arrayDep) {
 
-
   var urlFormatted = "http://www.camara.leg.br/internet/deputado/" + arrayDep;
 
   jsdom.env({
@@ -64,16 +64,13 @@
    done: function(errors, window) {
     var $s = window.$;
     var depObj = {};
-    //$s('a').each(function() {
-    var testt = "a";
-    console.log($s("*").text());
-    //console.log($s("title").text());
-    //console.log($s(this).attr('a'));
-     //});
-
-    //});
-    // var content = $(".documentFirstHeading");
-    // console.log(content);
+    $s('.visualNoMarker').find('ul').each(function() {
+        var date = $s(this).find('li').text();
+        
+        console.log(date);
+      
+        //window.close();
+    });
    }
   });
 
